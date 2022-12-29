@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+    <h3>사용자가 버튼을 클릭하면, input 태그의 공백여부, 체크박스의 체크여부</h3>
+    
+    아이디: <input type="input" id="id" value="" >
+    기억하기: <input type="checkbox" class="remember">
+    <button id="btn">확인</button>
+  
+    <script>
+
+        var btn = document.getElementById("btn");
+        var id = document.getElementById("id");
+
+        btn.onclick = function(){
+
+            if(id.value == ""){
+                alert("아이디 입력해라");
+                console.log("아이디를 입력하세요");
+            }else{
+                console.log("정상적으로 입력되었습니다");
+            }
+           
+            var ch = document.querySelector(".remember");
+
+            if(ch.checked == true){
+                console.log("기억 완료")
+            }else{
+                console.log("기억하기 싫은디~~")
+            }
+
+        }
+
+    </script>    
+
+
+
+    <hr>
+
+    <h3>인라인 이벤트 - 사용자가 체크박스를 클릭할 때마다 경고창에 value값을 띄워주기</h3>
+
+    <input onclick="a();" type="checkbox" value="1" id="input1">조항1
+    <input onclick="b();" type="checkbox" value="2" id="input2">조항2
+    <input onclick="c();" type="checkbox" value="3" id="input3">조항3
+
+
+    <script>
+    
+    function a(){
+       alert(input1.value)
+    }
+
+    function b(){
+       alert(input2.value)
+    }
+    
+    function c(){
+       alert(input3.value)
+    }
+
+
+
+
+    //쌤의 답안
+    /* 어떤 걸 체크했는지 확인할 방법이 없기 때문에 this를 써서 자기 자신 태그를 갖고 오도록...!
+    <input onclick="check(this);" type="checkbox" value="1" >조항1
+    <input onclick="check(this);" type="checkbox" value="2" >조항2
+    <input onclick="check(this);" type="checkbox" value="3" >조항3
+
+    <script>
+        function check(tag){
+            if(tag.checked){ //조항을 선택할 때만 경고창 뜨게끔!
+           alert(tag.value + "조항 선택");
+            } 
+        }
+    */
+
+
+
+
+    </script>
+
+
+</body>
+</html>

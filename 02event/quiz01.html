@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <select id="ch">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+
+    <!-- <input type="text" id="value"> 기본 이벤트 -->
+    <input type="text" onchange="aaa();">  <!--인라인 이벤트-->
+
+    <div id="db">db클릭이벤트</div>
+
+    <script>
+        // 1.위에 있는 select와 input에 여러분이 원하는 방법으로 change 걸어보기 
+        // 2. div에는 dbclick이벤트도 걸어보기
+   
+        //1번 문제
+        var ch = document.getElementById("ch");
+        ch.onchange = function(){
+            console.log("옵션 선택 완");
+        }
+
+        // var a = document.getElementById("value");
+        // a.onchange = function(){
+        //     console.log("값이 변경되었습니다");
+        // }
+
+        function aaa() {
+            console.log("체인지이벤트");
+        }
+
+        //2번 문제
+        var d = document.getElementById("db");
+        d.addEventListener("dblclick", function(){   //더블 클릭 이벤트명: dblclick
+            console.log("더블클릭");
+        });
+        
+   
+   </script>
+
+</body>
+</html>

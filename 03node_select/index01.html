@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btn">버튼</button>
+
+    <input type="checkbox" name="inter" value="1">java
+    <input type="checkbox" name="inter" value="2">js
+    <input type="checkbox" name="inter" value="3">css
+    <input type="checkbox" name="inter" value="4">html
+
+
+    <script>
+        
+        //element == node == 태그 (모두 같은 말)
+
+        var btn = document.getElementById("btn");
+        console.log(btn);
+
+        var inter = document.getElementsByName("inter"); //name이 inter인 태그 (array)
+        console.log(inter);
+        
+
+        btn.onclick = function(){  //버튼을 클릭했을 때 name이 inter인 태그 4개를 출력하는 방법
+            for(var i = 0; i < inter.length; i++){
+                console.log(inter[i]);
+            }
+        }
+
+
+    </script>
+
+    <hr>
+
+    
+    <button id="btn2">버튼</button>
+    <input type="radio" name="aaa" class="hello" value="1"> 프로그램
+    <input type="radio" name="aaa" class="hello" value="2"> 디자인
+    <input type="radio" name="aaa" class="hello" value="3"> 네트워크
+    <input type="radio" name="aaa" class="hello" value="4"> 보안
+
+    <script>
+        var btn2 = document.getElementById("btn2");
+        var hello = document.getElementsByClassName("hello"); //클래스 이름이 "hello"인 태그  - 반환이 배열
+        console.log(hello);
+
+        btn2.onclick = function(){
+            for(var i = 0; i < hello.length; i++){
+                console.log(hello[i]);
+            }
+        }
+
+
+    </script>
+
+    <hr>
+
+    <button id="btn3">버튼</button>
+
+    <ul id="bye">
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+    </ul>
+
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+    </ul>
+
+
+    <script>
+
+        var btn3 = document.getElementById("btn3");
+        
+        //document는 탐색이 문서 전체에서 이루어짐
+        var bye = document.getElementById("bye"); //id가 bye인 태그
+        //탐색이 bye에서만 이루어짐
+        var li = bye.getElementsByTagName("li"); //bye인 태그에서 탐색
+        console.log(li);
+
+        btn3.onclick = function(){
+            for(var i = 0; i < li.length; i++){
+                console.log(li[i]);
+            }
+        }
+
+    </script>
+
+</body>
+</html>

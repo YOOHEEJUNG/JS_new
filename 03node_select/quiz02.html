@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <h3>select에서 value속성은 선택된 값을 의미한다</h3>
+    <h3>change이벤트</h3>
+    
+
+    <script>
+        
+        window.onload = function(){
+        var c = document.querySelector(".change");
+        var ch = c.querySelectorAll(".change option");
+        console.log(ch);
+
+        c.onchange = function () {
+
+            if (c.value == "h") {
+                document.write(ch[0].innerHTML);
+            } else if (c.value == "b") {
+                document.write(ch[1].innerHTML);
+            } else if (c.value == "g") {
+                document.write(ch[2].innerHTML);
+            } else {
+                document.write("단어를 선택하세요")
+            }
+        }
+    }
+
+    </script>
+
+    <select class="change">
+        <option value="h">hello</option>
+        <option value="b">bye</option>
+        <option value="g">good-morning</option>
+        <option value="k">선택</option>
+    </select>
+
+
+</body>
+
+</html>
