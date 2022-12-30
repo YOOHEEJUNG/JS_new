@@ -14,28 +14,31 @@
     <h3>select에서 value속성은 선택된 값을 의미한다</h3>
     <h3>change이벤트</h3>
     
-
+    <h2 id="title"> 단어를 선택하세요 </h2>
     <script>
         
         window.onload = function(){
         var c = document.querySelector(".change");
         var ch = c.querySelectorAll(".change option");
+        var title = document.querySelector("#title");
         console.log(ch);
 
         c.onchange = function () {
 
             if (c.value == "h") {
-                document.write(ch[0].innerHTML);
+                 //this.log == c.value
+                title.innerHTML = "hello입니다"
             } else if (c.value == "b") {
-                document.write(ch[1].innerHTML);
+                title.innerHTML = "bye입니다"
             } else if (c.value == "g") {
-                document.write(ch[2].innerHTML);
+                title.innerHTML = "good-morning입니다"
             } else {
                 document.write("단어를 선택하세요")
             }
         }
     }
 
+  
     </script>
 
     <select class="change">

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>JS 카운트 만들기 - this, innerHTML, value 속성을 사용하면 됨</h3>
+
+    <input type="number" value="0" id="count">
+    <button onclick="calc(this)" id="plus" >+</button>
+    <button onclick="calc(this)" id="minus">-</button>
+
+    <script>
+
+        var plus = document.getElementById("plus");
+        var minus = document.getElementById("minus");
+        var count = document.getElementById("count");
+
+        console.log(this);
+
+        function calc(b) {
+            console.log(b);
+            if (b == plus) {   //태그가 어떤 값인지 구분을 할 수 있어야 하는 거 아니니...? 정신 차리자
+                count.value++;
+            }else{
+                if (count.value == 0) {    //0 아래로 금지라는 경고창이 뜬 이후로는 실행이 멈춰야 하기 때문에 return;
+                    alert("0 아래로 금지")
+                    return;  //종료
+                }
+                count.value--;
+
+                /*if(count.vlue <= 0){
+                    alert("0 아래로 금지")
+                    return;}
+                */
+            }            
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

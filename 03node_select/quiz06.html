@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input:focus{
+            outline: none;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h3>onfocus - 인풋에 focus 들어갈 때 동작, onblur - 인풋에 focus가 떠났을 때 동작</h3>
+    <input type = "text" class="xx">
+
+    <script>
+        var xx = document.querySelector(".xx");
+        xx.onfocus = function(){
+            console.log("포커스 진입");
+        }
+        xx.onblur = function(){
+            console.log("포커스 아웃");
+        }
+
+    </script>
+
+    <hr>
+
+
+    아이디 <input type="text" id="id" placeholder="4글자 이상"> <br>
+    <h4 id ="id_err"></h4>
+    비밀번호 <input type="password" id="pw" placeholder="9글자 이상">
+    <h4 id="pw_err" ></h4>
+    
+    <script>
+        var id = document.getElementById("id");
+        var pw = document.getElementById("pw");
+        var id_err = document.getElementById("id_err");
+        var pw_err = document.getElementById("pw_err");
+
+      //아이디
+        //change도 비슷하게 사용은 가능한데 
+        //차이점은 change는 값이 변할 때 실행이 되고 
+        //blur는 포커스를 벗어나는 순간 실행이 된다는 것이다
+        id.onblur = function(){
+            if(id.value.length < 4){
+                id_err.innerHTML = "아이디 4글자 이상이거든요?";
+                id.style.border = "3px solid red";
+            } else{
+                id_err.innerHTML = "";
+                id.style.border = "3px solid green";
+            }
+        }
+
+       
+        //비밀번호
+
+        pw.onblur = function(){
+            if(pw.value.length < 9){
+                pw_err.innerHTML = "비번 9글자 이상이거든요?";
+                pw.style.border = "3px solid red";
+            } else{
+                pw_err.innerHTML = "";
+                pw.style.border = "3px solid green";
+            }
+        }
+
+    </script>
+</body>
+</html>
