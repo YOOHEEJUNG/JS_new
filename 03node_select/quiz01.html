@@ -46,24 +46,23 @@
 
     <h3>인라인 이벤트 - 사용자가 체크박스를 클릭할 때마다 경고창에 value값을 띄워주기</h3>
 
-    <input onclick="a();" type="checkbox" value="1" id="input1">조항1
-    <input onclick="b();" type="checkbox" value="2" id="input2">조항2
-    <input onclick="c();" type="checkbox" value="3" id="input3">조항3
+    <input onclick="check(this);" type="checkbox" value="1" id="input1">조항1
+    <input onclick="check(this);" type="checkbox" value="2" id="input2">조항2
+    <input onclick="check(this);" type="checkbox" value="3" id="input3">조항3
 
 
     <script>
     
-    function a(){
-       alert(input1.value)
+
+    function check(input){
+        if(input.checked){
+            alert(input.value + "조항");
+        }
+ 
+
     }
 
-    function b(){
-       alert(input2.value)
-    }
-    
-    function c(){
-       alert(input3.value)
-    }
+
 
 
 

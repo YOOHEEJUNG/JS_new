@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {border-spacing: 0; border-collapse: collapse;}
+        thead th, tbody td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <table >
+        <thead>
+            <tr>
+                <th>이동</th>
+                <th>번호</th>
+                <th>이름</th>
+                <th>내용</th>
+                <th>날짜</th>
+            </tr>
+
+        </thead>
+
+        <tbody class="table">
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>1</td>
+            <td>홍길자</td>
+            <td>안녕!</td>
+            <td>2019-01-01</td>
+        </tr>
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>2</td>
+            <td>이순신</td>
+            <td>반가워</td>
+            <td>2019-02-01</td>
+        </tr>
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>3</td>
+            <td>이순신</td>
+            <td>반가워</td>
+            <td>2019-02-01</td>
+        </tr>
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>4</td>
+            <td>이순신</td>
+            <td>반가워</td>
+            <td>2019-02-01</td>
+        </tr>
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>5</td>
+            <td>이순신</td>
+            <td>반가워</td>
+            <td>2019-02-01</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+         function down(x){
+
+            // // console.log(x);  //자신 태그
+            
+            // // console.dir(x); // 현재 상태에서 사용할 수 있는 함수를 보여주는 사전
+            // console.log(x.parentNode); // 부모 태그 ( 공백이 있다면, 공백을 선택 )
+            // console.log(x.parentElement); // 부모 태그 ( 순수한 태그의 형태만 선택 )
+            // console.log(x.parentElement.nextElementSibling); // 태그의 부모 요소의 다음 형제 노드 출력 => <td>1</td>
+            // console.log(x.parentElement.nextElementSibling.nextElementSibling); // <td>홍길자</td>
+            
+            // console.log(x.previousElementSibling); // 이전형제 => 현재 없음 : null
+        
+            // // console.dir(x);
+
+            // console.log(x.parentElement.parentElement.firstElementChild); // tr기준 첫번쨰 자식 태그
+            // console.log(x.parentElement.parentElement.lastElementChild); // tr기준 마지막 자식 태그 
+            // console.log(x.parentElement.parentElement.children); // 모든 자식 태그  >> 배열로 출력
+            // console.log(x.parentElement.parentElement.children[2]); // 모든 자식 태그 중 3번째 태그(배열이라서 인덱스로 호출 가능)
+            
+            var current = x.parentElement.parentElement; // 버튼의 부모행 => tr
+            var next = current.nextElementSibling;  // tr의 다음 형제 노드
+
+            // 확실하지 않으면 콘솔창으로 출력해보기
+            console.log(current); 
+            console.log(next);
+ 
+            if ( next == null ){  
+                alert("마지막 행 입니다");
+                return; //함수종료
+            }
+
+            //insertBefore는 동작시킬 부모태그를 얻는다
+            var table = document.querySelector(".table");
+            table.insertBefore(next, current); //current앞에 next를 넣는다
+        
+        }
+
+        //up 바튼을 생성해보자
+        function up(y){
+            var current = y.parentElement.parentElement; //tr
+            var previous = current.previousElementSibling; // tr 기준 이전 형제 노드
+
+            if ( previous == null ){  
+                alert("첫번째 행 입니다");
+                return; //함수종료
+            }
+
+            console.log(current);
+            console.log(previous);
+
+
+            var table = document.querySelector(".table");
+            table.insertBefore(current, previous);
+        }
+
+
+    </script>
+
+
+</body>
+</html>

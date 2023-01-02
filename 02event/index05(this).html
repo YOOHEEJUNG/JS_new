@@ -29,9 +29,11 @@
 
         //이벤트에서의 this
         var btn = document.getElementById("btn");
-        btn.addEventListener("click", function(){
-            console.log(this); // 태그 자기자신
-        })
+        btn.onclick = function(){
+            (function() {
+                console.log(this); // 태그 자기자신
+            })();
+        }
 
     </script>
 

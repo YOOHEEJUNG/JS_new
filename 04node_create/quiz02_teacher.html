@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>step1</h3>
+    <h3>input은 지우는 게 아니라 display를 제어하세요</h3>
+    <h3>할 일 목록 만들기</h3>
+
+    
+    <input type="text" placeholder="이름을 입력하세요" id="id" value=""  ><button id="btn">확인</button>
+    <div class = "result"></div>
+    <input type="text" placeholder="당신의 할 일을 적으세요" id="input" value=""><button id="btn2">확인</button>
+
+    <ul class="plan"> <!-- 할 일을 추가하면 넣을 공간 -->
+
+    </ul>
+
+    <script>
+        var plan = document.querySelector(".plan");
+        var input = document.getElementById("input");
+        var btn = document.getElementById("btn");
+        var btn2 = document.getElementById("btn2");
+        var id = document.getElementById("id");
+        var result = document.querySelector(".result");
+
+        btn.onclick = function(){
+            if(id.value == ""){
+                confirm("입력해주세요");
+                
+            }else{
+                id.style.display = "none";
+                btn.style.display = "none";
+                result.innerHTML = id.value + "님 안녕하세요!";
+            }
+        }
+
+        btn2.onclick = function(){
+            
+            if(input.value == ""){
+                alert("입력해주세요");
+                return;
+            }
+                
+                var li = document.createElement("li");
+                li.innerHTML = input.value + '<button onclick="remove(this);">삭제</button>'; //클릭한 자기 자신이 지워져야 하기 때문에 this사용
+                //btn => 인라인, 익명함수, addEventListner
+            //     var btn = document.createElement("button");
+            //     btn.innerHTML = "더블클릭삭제";
+            //     btn.ondblclick = remove;
+                
+            
+            // li.appendChild(btn);
+            plan.appendChild(li);
+            input.value="";  
+        }
+
+         function remove(a) {
+           plan.removeChild(a.parentElement);
+        }
+
+    </script>
+
+</body>
+</html>

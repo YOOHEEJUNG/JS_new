@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-    <button onclick= "aaa();">인라인 이벤트</button> <!--태그에 이벤트 작성 = 인라인 이벤트 -->
-    <button onclick= "bbb(this);">1</button>  <!-- 화면 상에 보이는 건 1로 표시 근데 이제 클릭을 하게 되면 hello로 바뀐 태그 자신이 콘솔창에 출력-->
-    <button onclick= "bbb(this);">2</button>
-    <button onclick= "bbb(this);">3</button>
-    
+
+    <button onclick="aaa();">인라인 이벤트</button> <!--태그에 이벤트 작성 = 인라인 이벤트 -->
+    <button onclick="bbb(b.innerHTML);" id="b">1</button> <!-- 화면 상에 보이는 건 1로 표시 근데 이제 클릭을 하게 되면 hello로 바뀐 태그 자신이 콘솔창에 출력-->
+    <!-- <button onclick= "bbb(this);">2</button>
+    <button onclick= "bbb(this);">3</button> -->
+
 
 
     <script>
         // 인라인 이벤트 - 함수의 선언은 script에 하고, 태그에서 연결
         // 여러 개의 함수 연결 가능
-        function aaa(){
+        function aaa() {
             alert(1);
         }
 
+        var b = document.getElementById("b");
         function bbb(a) {
             // this가 태그에서 사용되면 태그 자기 자신을 가리킨다
-            console.log(a); // a는 태그 자신
-            a.innerHTML = 'hello';
+            // console.log(a); // a는 태그 자신
+            a.innerHTML = "hello";
+
         }
     </script>
 
 
 
 </body>
+
 </html>
