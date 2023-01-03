@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="section">
+        <div class="list">
+            <div>
+                <span>홍길동</span>
+                <button type="button" class="btn sel">선택</button>
+                <button type="button" class="btn del">삭제</button>
+            
+            </div>
+            <div>
+                <span>김길동</span>
+                <button type="button" class="btn sel">선택</button>
+                <button type="button" class="btn del">삭제</button>
+            </div>
+            <div>
+                <span>홍길자</span>
+                <button type="button" class="btn sel">선택</button>
+                <button type="button" class="btn del">삭제</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var list = document.querySelector(".list");
+
+        list.onclick = function(){
+
+            if(event.target.tagName != "BUTTON") return; // 버튼이 아니라면 종료
+            
+
+            // 부모한테서 이벤트 위임받고 각각 태그별로 구분하려면 className 활용하기!
+            if(event.target.classList.contains("sel")){ //선택 버튼 누르면 색깔 바꾸기
+                event.target.previousElementSibling.style.backgroundColor = "pink";
+                event.target.previousElementSibling.style.color = "white";
+
+            }else if(event.target.classList.contains("del")){ //삭제 버튼 누르면 삭제
+                event.target.parentElement.remove();
+            }
+            
+        }
+
+    </script>
+
+</body>
+</html>
