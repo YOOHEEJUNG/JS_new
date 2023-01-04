@@ -37,8 +37,8 @@
                 // console.log(e);
                 console.log(event);
 
-                // console.log(event.target); //이벤트가 동작된 실제 태그
-                // console.log(event.currentTarget); //이벤트가 걸려있는 실제 위치
+                console.log(event.target); //이벤트가 동작된 실제 태그
+                console.log(event.currentTarget); //이벤트가 걸려있는 실제 위치
 
                 // console.dir(e.target); - 기억 안 날 때 보고 쓰자!
                 if(e.target.tagName != "LI") return; //li태그가 아니라면 종료
