@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <script src="popup.js"></script> -->
+
+
+</head>
+
+<body>
+    또 실습 실화냐<br>
+    <input type="checkbox" class="check"> 오늘 하루 이 창 열지 않기
+
+
+
+    <script>
+        var check = document.querySelector(".check");
+        // console.log(document.cookie);
+        check.onclick = function () {
+
+            // console.log(document.cookie);
+            window.close();
+
+            var date = new Date();
+            date.setDate(date.getDate() + 2);
+            date.setHours(0);
+            date.setMinutes(0);
+            date.setSeconds(0);
+
+
+            var cookie = "";
+            cookie += "pop" + "=" + "true" + ";";
+            cookie += " path=/;";
+            cookie += " expires=" + date.toUTCString();
+
+            document.cookie = cookie;
+            get();
+
+
+        }
+
+
+        function get() {
+
+            var a = document.cookie.split(";");
+            for (i in a) {
+                if (a[i].indexOf("pop") != -1) {
+                    return true;
+                }
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

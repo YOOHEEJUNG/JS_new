@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="ajax()">ajax요청</button>
+
+    <script>
+        /*
+        
+        비동기 - 웹페이지 이동없이 데이터만 주고받는 기술
+        fetch()를 호출하면 promise를 반환
+        
+        Promise
+        -pending : 수행중
+        -fullfilled : 성공
+        -reject : 실패
+
+        1. 리턴 Promise라면 then(콜백함수)로 결과를 받을 수 있음
+
+        */
+
+        function ajax() {
+
+            //400번대 내가 코드 잘못 작성, 500번대 서버에서 오류 발생
+
+            //1st
+            var result = fetch("hi.txt");
+            result.then(function(response){
+                console.log(response);
+            })
+
+            //2nd
+            
+            fetch("hi.txt").then(function(response){
+
+                if(response.status != 200 ){
+                    alert("통신에 에러가 발생했습니다");
+                    return;
+                }
+                // var a = response.text();
+                // console.log(a); //promise 반환
+                response.text().then(function(data){
+                    console.log(data);
+                })
+
+            })
+            
+
+            //3nd - 콜백에 리턴을 걸면 fetch가 다시 promise를 반환
+            //.text() => 문자열로 형변환
+            // fetch("hi.txt")
+            //     .then(function (response) {
+            //         return response.text();
+            //     }).then(function (data) {
+            //         return data;
+            //     }).then(function (data) {
+            //          console.log(data);
+            //     });
+
+            //4nd - 비동기방식에서는 순서를 보장하지 않음
+
+            console.log(1);
+            //비동기형식 - 실행이 완료되지 않은 채로 다음으로 넘어감
+            //비동기형식으로 하지 않으면 사용자는 아무 내용이 없는 빈 화면만 보고 있어야 하기 때문에
+            
+            fetch("hi.txt")
+                .then(function (response) {
+                    return response.text(); //텍스트로 바꾸기
+                })
+                .then(function (data) {
+                    console.log(2);
+                })
+
+            console.log(3);   // 1 -> 3 -> 2 순으로 실행
+
+        }
+
+    </script>
+
+</body>
+
+</html>

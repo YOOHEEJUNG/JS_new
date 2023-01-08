@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    쿠키 이름: <input type="text" id="cookieName"><br>
+    쿠키 value:<input type="text" id="cookieValue"><br>
+    <button id="btn">쿠키 만들기</button>
+
+    <script>
+        // document.cookie = "키=값;";
+        // document.cookie = "키=값; expires=UTC스트링시간타입";
+
+        // var date = new Date(); 
+        // date.setMinutes(date.getMinutes() + 1); //지금 시간으로부터 1분 뒤
+
+        // console.log(date);
+        // //새로고침할 때마다 리셋이 되기 때문에 보통 이벤트 내부에 걸어준다
+        // //PATH: 쿠키가 생성될 도메인
+        // document.cookie = "키=값; path=/; expires=" + date.toUTCString();
+
+        var btn = document.getElementById("btn");
+
+        var cookieName = document.getElementById("cookieName");
+        var cookieValue = document.getElementById("cookieValue");
+
+        btn.onclick = function(){
+
+            var date = new Date(); 
+            date.setHours(date.getHours() + 1); //지금 시간으로부터 1시간 뒤
+            
+            //쿠키는 동일한 key가 만들어지면 덮어 씌어짐
+            var key = cookieName.value; //사용자가 입력한 값
+            var val = cookieValue.value; //사용자가 입력한 값
+
+            //쿠키 형성할 때, 세미콜론(;) 구분자로 구분
+            var cookie = "";
+            cookie += key + "=" + val + ";";
+            cookie += " path=/;";
+            cookie += " expires=" + date.toUTCString();
+
+            document.cookie = cookie;
+
+        
+
+            // document.cookie = "키=값; path=/; expires=" + date.toUTCString();   
+        }
+    </script>
+
+
+
+</body>
+</html>

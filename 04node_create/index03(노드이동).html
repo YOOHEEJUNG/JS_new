@@ -74,7 +74,7 @@
             
             // // console.dir(x); // 현재 상태에서 사용할 수 있는 함수를 보여주는 사전
             // console.log(x.parentNode); // 부모 태그 ( 공백이 있다면, 공백을 선택 )
-            // console.log(x.parentElement); // 부모 태그 ( 순수한 태그의 형태만 선택 )
+            console.log(x.parentElement); // 부모 태그 ( 순수한 태그의 형태만 선택 )
             // console.log(x.parentElement.nextElementSibling); // 태그의 부모 요소의 다음 형제 노드 출력 => <td>1</td>
             // console.log(x.parentElement.nextElementSibling.nextElementSibling); // <td>홍길자</td>
             
@@ -82,10 +82,10 @@
         
             // // console.dir(x);
 
-            // console.log(x.parentElement.parentElement.firstElementChild); // tr기준 첫번쨰 자식 태그
-            // console.log(x.parentElement.parentElement.lastElementChild); // tr기준 마지막 자식 태그 
-            // console.log(x.parentElement.parentElement.children); // 모든 자식 태그  >> 배열로 출력
-            // console.log(x.parentElement.parentElement.children[2]); // 모든 자식 태그 중 3번째 태그(배열이라서 인덱스로 호출 가능)
+            console.log(x.parentElement.parentElement.firstElementChild); // tr기준 첫번쨰 자식 태그
+            console.log(x.parentElement.parentElement.lastElementChild); // tr기준 마지막 자식 태그 
+            console.log(x.parentElement.parentElement.children); // 모든 자식 태그  >> 배열로 출력
+            console.log(x.parentElement.parentElement.children[2]); // 모든 자식 태그 중 3번째 태그(배열이라서 인덱스로 호출 가능)
             
             var current = x.parentElement.parentElement; // 버튼의 부모행 => tr
             var next = current.nextElementSibling;  // tr의 다음 형제 노드

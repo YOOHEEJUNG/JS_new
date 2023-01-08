@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    1번 페이지<br>
+    <button onclick="location.href='index06.html'">페이지 이동</button>
+
+    <h3>리플레이스 스테이트</h3>
+    <button onclick="func()">기록 변경하기</button>
+    
+    <script>
+
+        // history replaceState(저장할 데이터, 바꿀 제목, 바뀐 주소)
+        // history pushState(저장할 데이터, 바꿀 제목, 바뀐 주소)
+
+        function func() {
+            // history.pushState(null, '', '변경.html'); //브라우저 기록을 추가 
+            history.replaceState ('', '', null); //브라우저 기록을 변경 - 현재의 기록을 지워버리기 가능
+        }
+
+        // 기록을 변경해서 사용할 데이터를 '' 바꿔 주면, 사용자가 뒤로가기 버튼을 감지할 수 있다
+        // history.replaceState ('', '', null); 
+        // history.state 속성으로 확인이 가능함
+        // 사용자가 뒤로가기 버튼을 사용했음을 확인할 수 있다
+        // 브라우저 기록이 안 남았으면 하는 경우에 그 페이지를 뛰어넘을 때 사용할 수 있을 것
+        if ( history.state == '' ) {
+            alert("기록이 변경됨");
+        }
+
+    </script>
+
+</body>
+</html>

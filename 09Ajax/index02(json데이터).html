@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="ajax()">json파일 ajax요청</button>
+    <!-- 화면이 이미 로드되어 있다고 판단해야 함 -->
+    <div class="result"></div>
+
+    <script>
+        function ajax() {
+            
+            fetch("hi.json")
+            .then(function(res){
+                return res.json(); //json형변환 = json.parse랑 같은 기능
+            }).then(function(data){
+                // console.log(data);  //객체 반환
+                // console.log(data.id);  //객체 속 key값이 id인 value값
+                // console.log(data["id"]);
+
+                var result = document.querySelector(".result");
+                result.innerHTML = data["id"]; // 화면 이동 없이 데이터만 갖고 와서 화면에 출력
+
+            })
+
+        }
+    </script>
+
+    <hr>
+    <button onclick="ajax2()">xml데이터 ajax요청</button>
+
+    <script>
+        function ajax2(){
+            fetch("hi.xml")
+            .then(function(res){
+                return res.text();
+            }).then(function(data){
+                var result = new DOMParser().parseFromString(data, "text/xml"); //document객체 
+                var arr = result.querySelectorAll("datas > data"); //태그만 배열로 갖고 옴
+                // console.log(arr);
+
+                //값을 직접 파싱해서 갖고와야 함
+                for(var i = 0; i<arr.length; i++){
+                    console.log(arr[i].querySelector("name").innerHTML);
+                    console.log(arr[i].querySelector("version").innerHTML);
+                    console.log(arr[i].querySelector("price").innerHTML);
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>
